@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Toronto Waste Pickup Calendars : Converting Toronto Open Data  Solid Waste data into iCal calendars." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Toronto Waste Pickup Calendars</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/laurenarcher/iCalTOWaste">View on GitHub</a>
+
+          <h1 id="project_title">Toronto Waste Pickup Calendars</h1>
+          <h2 id="project_tagline">Converting Toronto Open Data  Solid Waste data into iCal calendars.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/laurenarcher/iCalTOWaste/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/laurenarcher/iCalTOWaste/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>One of my goals as I teach myself python is to use the data found on the <a href="http://www1.toronto.ca/wps/portal/open_data/open_data_home?vgnextoid=b3886aa8cc819210VgnVCM10000067d60f89RCRD">Toronto Open Data</a> site. I'm far more motivated to make useful things than I am by programming-for-the-sake-of-programming, and I like the challenge of using external data sets in interesting ways.</p>
+
+<p>And so, my first attempt to make something useful out of Open Data data: </p>
+
+<h3>Garbage &amp; Recycling Day Google Calendars</h3>
+
+<p><img src="https://github.com/laurenarcher/iCalTOWaste/blob/master/AllCals.jpg?raw=true" alt="All Calendars"></p>
+
+<p>Solid Waste Pickup calendars are already available to <a href="http://www.toronto.ca/garbage/single/full_calendar.htm">download</a> from the <a href="http://www.toronto.ca/garbage/">City's garbage website</a> in .pdf format. These calendars are great to print and post at home, but personally I don't use paper calendars or appointment books at all anymore, and I don't think I'm alone. I use Google Calendar at home, and a corporate calendar at work. All digital, all the time. I'm also super forgetful and completely reliant on email notifications (and again, I don't think I'm alone.)</p>
+
+<p>Luckily, The City of Toronto also makes all of their Solid Waste Pickup data available on the Toronto Open Data site. You can download all of the schedules in plain text, Excel or .csv.</p>
+
+<p>The raw data looks like this:</p>
+
+<pre><code>Calendar,WeekStarting,GreenBin,Garbage,Recycling,YardWaste, ChristmasTree
+MondayNight,9/2/2012,M,0,M,0,0
+MondayNight,9/9/2012,M,M,0,M,0
+MondayNight,9/16/2012,M,0,M,0,0
+MondayNight,9/23/2012,M,M,0,M,0
+MondayNight,9/30/2012,M,0,M,0,0
+...
+MondayNight,12/2/2012,M,M,0,M,0
+MondayNight,12/9/2012,M,0,M,0,0
+MondayNight,12/16/2012,M,M,0,M,0
+MondayNight,12/23/2012,T,0,T,0,0
+MondayNight,12/30/2012,T,T,0,0,T
+</code></pre>
+
+<p>Not terribly useful for most people.</p>
+
+<p>So I decided to write a small program that would convert this raw data into something that could be imported into a Google Calendar, iCal, Outlook, or Yahoo! calendar.</p>
+
+<p>You can see the code I used to do this <a href="https://github.com/laurenarcher/iCalTOWaste">here</a>.</p>
+
+<p>And here's a sample of the converted data:</p>
+
+<pre><code>Subject,Start Date,All Day Event,Description
+
+Recycling Day,09/07/2012,True,Put out Recycling and Green Bin waste! For more information on what can be recycled click here: http://www.toronto.ca/garbage/bluebin.htm
+
+Garbage Day,09/14/2012,True,"Put out Garbage, Yard and Green Bin waste! Find basic sorting information here: http://app.toronto.ca/wes/winfo/search.do"
+
+Recycling Day,09/21/2012,True,Put out Recycling and Green Bin waste! For more information on what can be recycled click here: http://www.toronto.ca/garbage/bluebin.htm
+
+Garbage Day,09/28/2012,True,"Put out Garbage, Yard and Green Bin waste! Find basic sorting information here: http://app.toronto.ca/wes/winfo/search.do"
+
+Recycling Day,10/05/2012,True,Put out Recycling and Green Bin waste! For more information on what can be recycled click here: http://www.toronto.ca/garbage/bluebin.htm
+</code></pre>
+
+<p>At first glance, still not terribly useful. However, in this format you can directly import this file into Google Calendar.</p>
+
+<h3>Download or Subscribe to your Toronto Waste Pickup Calendar</h3>
+
+<p><img src="https://dl.dropboxusercontent.com/u/50961844/GarbageZone.jpg" alt="Sample Zone Map"></p>
+
+<p>If you live in Toronto and want a Solid Waste Pickup calendar for your own use you have a couple of options.</p>
+
+<p><a href="http://www.toronto.ca/garbage/single/calendars/index.htm">First find what zone you live in.</a></p>
+
+<p>If you use Google Calendar, you can subscribe directly your public calendar. The public calendars have notifications built in, so if you choose to subscribe you will receive an email every week to remind you of your garbage or recycling day. I will be able update these calendars with new dates as they become available.</p>
+
+<p>You can also download your own calendar to import to your own account. If you use Google Calendar or iCal, you should download the .ics file. If you use Microsoft Outlook or Yahoo! Calendars, you should download the .csv file. </p>
+
+<p>Although the calendars should theoretically work universally, I haven't tested these on iCal, Microsoft Outlook or Yahoo! Calendars yet, so if you do import to any of these and it works, let me know! If it doesn't work, let me know too, and I'll make adjustments!</p>
+
+<p><strong>Monday Night</strong></p>
+
+<p><a href="https://www.google.com/calendar/render?cid=cmNsajF2dms3YWQ5djM0NDM2YXE5Y21sczRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Subscribe</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Monday%20Night%20Waste%20Pickup.ics">Download (Google Calendar, iCal)</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/MondayNight.csv">Download (.csv, Outlook, Yahoo! Calendars)</a></p>
+
+<p><strong>Tuesday 1</strong></p>
+
+<p><a href="https://www.google.com/calendar/render?cid=YWNndnRlcTY3ZGVsYzhmNDBodDgwajZpbGdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Subscribe</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Tuesday%201%20Waste%20Pickup.ics">Download (Google Calendar, iCal)</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Tuesday1.csv">Download (.csv, Outlook, Yahoo! Calendars)</a></p>
+
+<p><strong>Tuesday 2</strong></p>
+
+<p><a href="https://www.google.com/calendar/render?cid=azg4YWlmM2twazZnY2dwczAzMDlkZWpzcm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Subscribe</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Tuesday%202%20Waste%20Pickup.ics">Download (Google Calendar, iCal)</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Tuesday2.csv">Download (.csv, Outlook, Yahoo! Calendars)</a></p>
+
+<p><strong>Wednesday 1</strong></p>
+
+<p><a href="https://www.google.com/calendar/render?cid=bXYwMDByOWI1N2RldnVtMGlnZnQ4cXI0MmdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Subscribe</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Wednesday%201%20Waste%20Pickup.ics">Download (Google Calendar, iCal)</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Wednesday1.csv">Download (.csv, Outlook, Yahoo! Calendars)</a></p>
+
+<p><strong>Wednesday 2</strong></p>
+
+<p><a href="https://www.google.com/calendar/render?cid=bG1uNzhnOWFsMjVxbjFodjg5cjVuMmZ1YWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Subscribe</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Wednesday%202%20Waste%20Pickup.ics">Download (Google Calendar, iCal)</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Wednesday2.csv">Download (.csv, Outlook, Yahoo! Calendars)</a></p>
+
+<p><strong>Thursday 1</strong></p>
+
+<p><a href="https://www.google.com/calendar/render?cid=OHVtbjAxMWttYXQ1ZjZ1cGdlZTJjZ2RqYzBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Subscribe</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Thursday%201%20Waste%20Pickup.ics">Download (Google Calendar, iCal)</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Thursday1.csv">Download (.csv, Outlook, Yahoo! Calendars)</a></p>
+
+<p><strong>Thursday 2</strong></p>
+
+<p><a href="https://www.google.com/calendar/render?cid=Z3Zvamd2cWRvaTQ3cmZsZ2pwc3VkMWQ5YTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Subscribe</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Thursday%202%20Waste%20Pickup.ics">Download (Google Calendar, iCal)</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Thursday2.csv">Download (.csv, Outlook, Yahoo! Calendars)</a></p>
+
+<p><strong>Friday 1</strong></p>
+
+<p><a href="https://www.google.com/calendar/render?cid=MG05cjVmbjdnYjEzcHYwZ2ZzcXVvZ20wNjhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Subscribe</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Friday%201%20Waste%20Pickup.ics">Download (Google Calendar, iCal)</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Friday1.csv">Download (.csv, Outlook, Yahoo! Calendars)</a></p>
+
+<p><strong>Friday 2</strong></p>
+
+<p><a href="https://www.google.com/calendar/render?cid=NG5lMmpoY2pubTlmanYwdmprdnNndDg1cDBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ">Subscribe</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Friday%202%20Waste%20Pickup.ics">Download (Google Calendar, iCal)</a></p>
+
+<p><a href="https://dl.dropboxusercontent.com/u/50961844/Friday2.csv">Download (.csv, Outlook, Yahoo! Calendars)</a></p>
+
+<h3>Feedback is appreciated.</h3>
+
+<p>I am a rookie and forever learning. If I've gotten something completely wrong I'd love it if you could send some constructive criticism my way.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Toronto Waste Pickup Calendars maintained by <a href="https://github.com/laurenarcher">laurenarcher</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
