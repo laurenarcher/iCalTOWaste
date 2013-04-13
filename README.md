@@ -12,3 +12,5 @@ Find out what garbage/recycling collection calendar applies to you and your prop
 http://www.toronto.ca/garbage/single/calendars/index.htm
 
 Learn more, download and subscribe to your calendar here:
+
+http://laurenarcher.github.io/iCalTOWaste
