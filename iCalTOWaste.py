@@ -2,12 +2,9 @@ import csv
 import time
 import datetime
 
-input_file = open('Calendars.csv', 'r')
-data = csv.reader(input_file)
-
 #Make output CSV Files
 
-def MakeFiles():
+def MakeFiles(data):
     input_file = open('Calendars.csv', 'r')
     data = csv.reader(input_file)
     for line in data:
